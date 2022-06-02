@@ -71,7 +71,7 @@ Thus, the further away from the center, the more we need to sample points in ord
 
 This explanation however doesn't tell us how to sample the right way.
 
-A solution is to sample in cartesian coordinates $x$ and $y$ directly, and remove points falling outside of the circle.
+A solution is to sample in cartesian coordinates $x$ and $y$ directly, and remove points falling outside of the circle (rejection sampling).
 
 But we can do better (¬‿¬)
 
