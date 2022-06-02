@@ -102,8 +102,3 @@ plt.show()
 ![png](README_files/README_17_0.png)
     
 
-
-
-```python
-
-```
