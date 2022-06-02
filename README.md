@@ -53,7 +53,7 @@ Let's vary the value of $\theta$ for two values of $r$.
 
 
 ```python
-theta_lin = np.linspace(0, 2 * np.pi, 10)
+theta_lin = np.linspace(0, 2 * np.pi, 11)
 plt.scatter(0.1 * np.cos(theta_lin), 0.1 * np.sin(theta_lin), s=20)
 plt.scatter(0.9 * np.cos(theta_lin), 0.9 * np.sin(theta_lin), s=20)
 plt.show()
@@ -65,7 +65,9 @@ plt.show()
     
 
 
-At fixed number of points sampled (here $10$), it's obvious that the bigger $r$, the lower the density around the circle or radius $r$.
+At constant number of points sampled (here $10$), it's obvious that the bigger $r$, the lower the density on the ring of radius $r$.
+
+In other words, the outer rings with larger radii have lower densities than the inner ones.
 
 Thus, the further away from the center, the more we need to sample points in order to rebalance the densities for each radius.
 
