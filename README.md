@@ -7,6 +7,9 @@ We can sample values for $r$ and $\theta$ in polar coordinates and then visualiz
 
 ```python
 %matplotlib inline
+import math
+from random import uniform
+
 import matplotlib.pyplot as plt
 import numpy as np
 ```
@@ -75,6 +78,36 @@ This explanation however doesn't tell us how to sample the right way.
 
 A solution is to sample in cartesian coordinates $x$ and $y$ directly, and remove points falling outside of the circle (rejection sampling).
 
+
+```python
+def rejection_sampling(N):
+    x_arr = [0] * N
+    y_arr = [0] * N
+    i = 0
+    while i < N:
+        x = uniform(-1, 1)
+        y = uniform(-1, 1)
+        if x**2 + y**2 > 1:
+            continue
+        x_arr[i] = x
+        y_arr[i] = y
+        i += 1
+    return x_arr, y_arr
+```
+
+
+```python
+x, y = rejection_sampling(N)
+plt.scatter(x, y, s=1, marker=".")
+plt.show()
+```
+
+
+    
+![png](README_files/README_14_0.png)
+    
+
+
 But we can do better (¬‿¬)
 
 ## Mathematical Explanation
@@ -101,6 +134,41 @@ plt.show()
 
 
     
-![png](README_files/README_17_0.png)
+![png](README_files/README_20_0.png)
     
 
+
+## Benchmarks
+
+Rejection sampling is much simpler, but is it faster?
+
+
+```python
+def sqrt_solution(N):
+    x_arr = [0] * N
+    y_arr = [0] * N
+    for i in range(N):
+        r_sqrt = math.sqrt(uniform(0, 1))
+        theta = uniform(0, 2 * np.pi)
+        x_arr[i] = r_sqrt * math.cos(theta)
+        y_arr[i] = r_sqrt * math.sin(theta)
+    return x_arr, y_arr
+```
+
+
+```python
+%timeit rejection_sampling(N)
+```
+
+    17.9 ms ± 1.28 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    
+
+
+```python
+%timeit sqrt_solution(N)
+```
+
+    11.9 ms ± 173 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    
+
+The solution with the square root is surprisingly faster, probably because of the dynamic branching slowing things down in the rejection sampling solution.
