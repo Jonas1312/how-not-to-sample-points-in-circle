@@ -114,13 +114,13 @@ But we can do better (¬‿¬)
 
 ![](area.png)
 
-For small variations of $r$ and $\theta$, we have a small variation of area $dA$:
+For small variations of $\theta$ and $r$, we have a small variation of area $dA$:
 
-$$dArea = rdrd\theta$$
+$$dA = rdrd\theta$$
 
 We can see that the extra $r$ will scale the density. Instead, we can rewrite it that way:
 
-$$dArea = \frac{1}{2}d(r^2)d\theta$$
+$$dA = \frac{1}{2}d(r^2)d\theta$$
 
 The solution is to sample uniformly in $\theta$ and in $u = r^2$ that is $r=\sqrt{u}$.
 
