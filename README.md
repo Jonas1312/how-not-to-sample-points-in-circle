@@ -2,7 +2,7 @@
 
 For any reason, we want to sample points uniformly in a circle.
 
-We can sample values for $r$ and $\theta$ in polar coordinates and then visualize the points with a scatter plot to see if it went well...
+We can sample values for $\theta$ and $r$ in polar coordinates and then visualize the points with a scatter plot:
 
 
 ```python
