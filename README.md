@@ -1,6 +1,6 @@
 # How to Uniformly Sample Points in a Circle
 
-For any reason, we want to sample points uniformly in a circle.
+For whatever reason, we want to sample points uniformly in a circle.
 
 We can sample values for $\theta$ and $r$ in polar coordinates and then visualize the points with a scatter plot:
 
